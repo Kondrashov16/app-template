@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SampleItemDetailsView extends StatelessWidget {
-  const SampleItemDetailsView({super.key});
+class ItemDetails extends StatelessWidget {
+  const ItemDetails({super.key});
 
   static const routeName = '/sample_item';
 

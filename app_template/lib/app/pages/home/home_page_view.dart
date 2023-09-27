@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../settings/settings_view.dart';
-import 'sample_item.dart';
-import 'sample_item_details_view.dart';
+import '../../core/domain/models/sample_item.dart';
+import '../item_details/item_details_view.dart';
 
-class SampleItemListView extends StatelessWidget {
-  const SampleItemListView({
+class HomePage extends StatelessWidget {
+  const HomePage({
     super.key,
     this.items = const [SampleItem(1), SampleItem(2), SampleItem(3)],
   });
@@ -23,7 +23,7 @@ class SampleItemListView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              Navigator.restorablePushNamed(context, SettingsView.routeName);
+              Navigator.restorablePushNamed(context, Settings.routeName);
             },
           ),
         ],
@@ -44,7 +44,7 @@ class SampleItemListView extends StatelessWidget {
             onTap: () {
               Navigator.restorablePushNamed(
                 context,
-                SampleItemDetailsView.routeName,
+                ItemDetails.routeName,
               );
             }
           );
