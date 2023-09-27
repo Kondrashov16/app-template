@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../settings/settings_view.dart';
 import '../../core/domain/models/sample_item.dart';
-import '../item_details/item_details_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
     this.items = const [SampleItem(1), SampleItem(2), SampleItem(3)],
   });
-
-  static const routeName = '/';
 
   final List<SampleItem> items;
 
@@ -23,13 +20,11 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              Navigator.restorablePushNamed(context, Settings.routeName);
+                context.go('/settings');
             },
           ),
         ],
       ),
-
-
       body: ListView.builder(
         restorationId: 'sampleItemListView',
         itemCount: items.length,
@@ -37,17 +32,13 @@ class HomePage extends StatelessWidget {
           final item = items[index];
 
           return ListTile(
-            title: Text('SampleItem ${item.id}'),
-            leading: const CircleAvatar(
-              foregroundImage: AssetImage('assets/images/flutter_logo.png'),
-            ),
-            onTap: () {
-              Navigator.restorablePushNamed(
-                context,
-                ItemDetails.routeName,
-              );
-            }
-          );
+              title: Text('SampleItem ${item.id}'),
+              leading: const CircleAvatar(
+                foregroundImage: AssetImage('assets/images/flutter_logo.png'),
+              ),
+              onTap: () {
+                context.go('/item_details');
+              });
         },
       ),
     );

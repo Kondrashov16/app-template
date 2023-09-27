@@ -5,8 +5,6 @@ import 'bloc/settings_controller.dart';
 class Settings extends StatelessWidget {
   const Settings ({super.key, required this.controller});
 
-  static const routeName = '/settings';
-
   final SettingsController controller;
 
   @override
